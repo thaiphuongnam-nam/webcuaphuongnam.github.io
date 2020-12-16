@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ADMIN</title>
+    <link href="cssadmin.css" rel="stylesheet" type="text/css" />
+    <link href="cssqlsp.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="jsqlsp.js"></script>
+</head>
+
+
+<body onload="showProductList(0);">
+    <div id="area">
+        <div id="adminarea"><span><h1>Admin Area</h1></span></div>
+        <div class="timkiem"><input type="text" name="search" value="" size="50" /><input type="submit" name="timkiem" value="Tìm" /></div>
+        <div id="khungtenad">
+            <a href="index.html"><div id="buttondangxuat"><span>Đăng xuất</span></div></a>
+            <div id="tenadmin"><span>Tên Admin</span></div>
+        </div>
+    </div>
+    <script>//menu left admin----------------------------------></script>
+    <div id="leftmenu">
+        <a href="index.html"><div class="tenmenu"><font color="#FFFFFF">Trang Chủ</font></div></a>
+        <a href="admin.html"><div class="tenmenu"><font color="#FFFFFF">Thống kê</font></div></a>
+        <a href="qluser.html"><div class="tenmenu"><font color="#FFFFFF">Quản lý USER</font></div></a>
+        <a href="qldh.html"><div class="tenmenu"><font color="#FFFFFF">Quản lý đơn hàng</font></div></a>
+        <a href="qlsp.html"><div class="tenmenu"><font color="#FFFFFF">Quản lý SP</font></div></a>
+    </div>
+    <div id="content">
+        <div id="contenthome">
+            <span>&nbsp;</span><a href="index.html"><span>Home</span></a><span> / </span><span>Admin</span><span> / </span><span>Quản lý SP</span>
+        </div>
+        <div id="noidung">
+            <div class="tieude"><button onclick="document.getElementById('id01').style.display='block'">Thêm sản phẩm</button></div>
+            <div id="maintable">
+                <h1>DANH SÁCH SẢN PHẨM</h1>
+                <table id="productlist"></table>
+                <div id="pagination">
+
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    <!----------nut them sp ẩn------------------>
+    <div class="popup-themsp" id="id01">
+        <div class="popup-themsp__content">
+            <div class="popup-themsp__title">Thêm Sản Phẩm</div>
+            <div class="popup-themsp-left">
+                <div class="popup-themsp-left__label">Nhập Hãng</div>
+                <div class="popup-themsp-left__label">Nhập Tên</div>
+                <div class="popup-themsp-left__label">Nhập Prize</div>
+                <div class="popup-themsp-left__label">Chọn Hình</div>
+            </div>
+            <div class="popup-themsp-right">
+                <div class="popup-themsp-left__input"><input id="hang" class="them-ten" type="text" placeholder="Hãng sản phẩm" /></div>
+                <div class="popup-themsp-left__input"><input id="tensp" class="them-gia" type="text" placeholder="Tên sản phẩm" /></div>
+                <div class="popup-themsp-left__input"><input id="price" class="them-thu-tu" type="text" placeholder="Giá sản phẩm" /></div>
+                <div class="popup-themsp-left__input"><input class="them-hinh" type="file" onchange="changeimgadd(this)" /></div>
+            </div>
+        </div>
+        <button type="button" class="popup-themsp__btn" onclick="addproduct();">Thêm</button>
+        <span class="close" onclick="document.getElementById('id01').style.display='none'" title="Close">&times;</span>
+    </div>
+    <!---------------Sửa sản phẩm----------------------------------->
+    <div class="popup-themsp" id="changeproduct">
+        <div class="popup-themsp__content">
+            <div class="popup-themsp__title">Sửa Sản Phẩm</div>
+            <div class="popup-themsp-left">
+                <div class="popup-themsp-left__label">Nhập Hãng</div>
+                <div class="popup-themsp-left__label">Nhập Tên</div>
+                <div class="popup-themsp-left__label">Nhập Prize</div>
+                <div class="popup-themsp-left__label">Chọn Hình</div>
+            </div>
+            <div class="popup-themsp-right" id="">
+                <div class="popup-themsp-left__input"><input class="them-ten" type="text" placeholder="Hãng sản phẩm" id="brand" /></div>
+                <div class="popup-themsp-left__input"><input class="them-gia" type="text" placeholder="Tên sản phẩm" id="productname" /></div>
+                <div class="popup-themsp-left__input"><input class="them-thu-tu" type="text" placeholder="Giá sản phẩm" id="productprice" /></div>
+                <div class="popup-themsp-left__input"><input class="them-hinh" type="file" onchange="changeimgadd(this)" /></div>
+            </div>
+        </div>
+        <button class="popup-themsp__btn" id="save"></button>
+        <span onclick="closechangebox()" class="close" title="Close">&times;</span>
+    </div>
+</body>
+</html>

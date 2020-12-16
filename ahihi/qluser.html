@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="cssadmin.css" rel="stylesheet" type="text/css" />
+<link href="cssqlsp.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jsqluser.js"></script>
+</head>
+
+<body onload="showUserList()">
+    <div id="area">
+        <div id="adminarea"><span><h1>Admin KINGBOOKS</h1></span></div>
+        <div class="timkiem"><input type="text" name="search" value="" size="50" /><input type="submit" name="timkiem" value="Tìm" /></div>
+        <div id="khungtenad">
+            <a href="index.html"><div id="buttondangxuat"><span>Đăng xuất</span></div></a>
+            <div id="tenadmin"><span>Tên Admin</span></div>
+        </div>
+    </div>
+    <script>//menu left admin----------------------------------></script>
+    <div id="leftmenu">
+        <a href="index.html"><div class="tenmenu"><font color="#FFFFFF">Trang Chủ</font></div></a>
+        <a href="admin.html"><div class="tenmenu"><font color="#FFFFFF">Thống kê</font></div></a>
+        <a href="qluser.html"><div class="tenmenu"><font color="#FFFFFF">Quản lý USER</font></div></a>
+        <a href="qldh.html"><div class="tenmenu"><font color="#FFFFFF">Quản lý đơn hàng</font></div></a>
+        <a href="qlsp.html"><div class="tenmenu"><font color="#FFFFFF">Quản lý SP</font></div></a>
+    </div>
+    <div id="content">
+        <div id="contenthome">
+            <span>&nbsp;</span><a href="index.html"><span>Home</span></a><span> / </span><span>Admin</span><span> / </span><span>Quản lý User</span>
+        </div>
+        <div id="noidung">
+            <div id="maintable">
+                <h1>DANH SÁCH KHÁCH HÀNG</h1>
+                <table class="table" id="userlist">
+                    <tr>
+                        <th>STT</th>
+                        <th>HỌ TÊN KH</th>
+                        <th>TÊN ĐĂNG NHẬP</th>
+                        <th>Xóa</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,347 @@
+﻿
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sách Hay</title>
+    <link href="new.css" rel="stylesheet" />
+    <link href="fontawesome-free-5.5.0-web/css/all.css" rel="stylesheet" />
+    <script type="text/javascript" src="doremon.js"></script>
+    <style>
+        #giaphat {
+            width: 100%;
+            float: left;
+        }
+
+        .giaphat1 {
+            height: 80px;
+            width: 1100px;
+            margin: 0 auto;
+            border-bottom: #cbcbcb solid 1px;
+        }
+
+        #giaphat .giaphat1 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .giaphat2 h3 {
+            margin-left: 100px;
+            margin-top: 30px;
+            font-size: 26px;
+        }
+
+        #giaphat3 {
+            width: 100%;
+            float: left;
+        }
+
+        .giaphat4 {
+            height: 750px;
+            width: 82%;
+            margin: 0 auto;
+        }
+
+        #giaphat3 .giaphat4 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #td {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f1e50b;
+            width: 100%;
+            height: 100vh;
+            z-index: 3;
+            transition: 0.5s;
+        }
+        #giaphat5 img{
+            height:250px;
+            width:249px;
+            
+        }
+        #giaphat5 #abcxyz {
+            height: 360px;
+            width: 251px;
+            float: left;
+            margin: 10px 8px 0px 14px;
+        }
+        #giaphat5 #abcxyz:hover{
+            border:#cbcbcb solid 1px;
+        }
+        #giaphat5 button{
+            margin-top:5px;
+            margin-left:67px;
+        }
+        #giaphat5 button:hover{
+            background:#f1e50b;
+        }
+        #giaphat5 p{
+            font-size:18px;
+            margin-left:10px;
+            margin-top:5px;
+        }
+        .ttyy a.active {
+            cursor: default;
+        }
+
+        .ttyy a:active {
+            outline: none;
+        }
+        .ttyy a.active{
+            border: #cbcbcb solid 2px;
+            background: #000;
+            color: #fff;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="menu">
+        <a href="index.html"></a>
+        <div id="timkiem" class="search">
+            <input type="text" type="search" size="30" id="giatritimkiem" style="border-radius: 5px;"
+                   placeholder="Bạn cần tìm sách ?(tên sách, thể loại,...)" onkeypress="thaotacEnter()" />
+            <label for="giatritimkiem">
+                <button class="fas fa-search" id="tk" onclick="timKiem()" style="border-radius: 3px;"></button>
+            </label>
+        </div>
+        <div id="inout" style="width:520px;height:50px;float: left;padding-top: 20px;padding-left: 260px;">
+                <a style="font-family:inherit;cursor: pointer;color: #FFCC66;text-align: center;margin:20px; text-decoration: none;" onclick="openSignIn()">Đăng nhập</a>
+                <a style="font-family:inherit;cursor: pointer;color: #FFCC66;text-align: center;margin:20px; text-decoration: none;" onclick="openSignUp()">Đăng ký</a>
+
+            </div>
+        <div class="Hotline"><p class="fas fa-phone phone"></p> Hotline: <span class="phone">0785313029</span></div>
+        <a href="index.html?giohang"><div class="cart"><i class="fas fa-shopping-cart shop"></i></div></a>
+
+        <div id="dk">
+            <div id="signup" style="display: block; top: -90px;">
+                <form id="dangky" style="display: block; " onSubmit="return saveAccount()">
+                    <span class="close" onclick="closeSignUp()">+</span>
+                    <br />
+                    <h2>ĐĂNG KÝ</h2>
+                    <div class="signupinfo">
+                        <div class="col">
+                            <div id="error"></div>
+                            <label for="fullname">Họ và tên: </label>
+                            <input type="text" id="fullname" required=required />
+                            <label for="phone">Số điện thoại: </label>
+                            <input type="tel" id="phone" maxlength="11" required=required />
+                            <div id="phoneerror" style="float: left;display: none;"></div>
+                        </div>
+                        <div class="col">
+                            <div id="accounterror"></div>
+                            <label for="user">Tên đăng nhập: </label>
+                            <input type="text" id="user" min="6" required=required />
+                            <div id="accounterror" style="float: left;display: none;"></div>
+                            <label for="pass">Mật khẩu: </label>
+                            <input type="password" id="pass" min="6" required=required />
+                            <div id="accounterror" style="float: left;display: none;"></div>
+                            <label for="repass">Nhập lại mật khẩu: </label>
+                            <input type="password" id="repass" required=required />
+                            <div id="repasserror" style="display: none;float: left;"></div>
+                        </div>
+                    </div>
+                    <button type="submit" id="btnsignup" onClick="saveAccount()">Đăng ký</button>
+                    <p>Đã có tài khoản ! <a style="cursor: pointer;" onClick="openSignIn()">Đăng nhập</a></p>
+                </form>
+            </div>
+        </div>
+        <!--  KHUNG DANG NHAP   -->
+        <div style="width: 100%;height: 100%">
+
+            <div id="login" style="display: none;">
+
+                <div class="login-content">
+                    <div id="logo">
+                        <a href="index.html"></a>
+                        <a onclick="closeSignIn()" style="text-decoration: none;font-size:50px;color: red;float: right;margin-right:350px;"><i class="fas fa-backspace"></i></a>
+                    </div>
+
+                    <div id="signin" class="contener">
+                        <form  class="dangnhap" id="dangnhap" name="dangnhap" method="post">
+                            <div class="tetbox">
+                                <input id="username" type="text" value="" name="username" placeholder=" Tên đăng nhập" required=required style="height:40px;margin-top:30px;" />
+                            </div>
+                            <div class="tetbox" style="margin-top:10px;">
+                                <input id="password" type="password" value="" name="password" placeholder=" Mật khẩu" required=required style="height: 40px; " />
+                            </div>
+                            <div>
+                                <label class="remember"><input type="checkbox" style="margin-left: -180px;" name="" /> <i style="float: left; margin-left: 20px; color: black; ">Nhớ tài khoản<nav></nav></i></label>
+
+                            </div>
+                            <div>
+                                <input class="login" style="height: 50px;" type="submit" onclick="checkLogin()" value="ĐĂNG NHẬP" />
+                            </div>
+                        </form>
+                        <div>
+                            <h2 class="or">or</h2>
+                        </div>
+                        <div style="margin-top: -50px;">
+                            <label><a class="facebook"><i class="fab fa-facebook"></i> Facebook</a></label>
+                            <label><a class="gmail"><i class="fab fa-google-plus"></i> Gmail</a></label>
+                            <a href="#" class="forgot1" style="float: right;">Quên mật khẩu ? </a><br /><br />
+                            <p class="forgot2">Chưa có tài khoản ?</p>
+                            <a onClick="openSignUp()" class="forgot2" style="margin-left:2em; border :2px white solid; ">Đăng ký</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list">
+        <div class="menulist">
+            <ul>
+                <li><a href="index.html?trangchu"> Trang chủ</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li>
+                    <a href="ms.html"> Mượn sách	</a>
+            
+                </li>
+                <li id="danhmuc">
+                    <!-- show danh muc san pham  -->
+                    <script>
+                        // TAO DANH MUC CAC NHAN HIEU
+
+                        var s = "";
+
+                        for (var i = 0; i < danhmuc.length; i++) {
+                            s = s + '<li><a href="index.html?' + danhmuc[i].key + '&1">' + danhmuc[i].Name + '</a></li>';
+                        }
+                        //alert(s);
+                        document.getElementById("danhmuc").innerHTML = s;
+                        // -------------------------------------------------------------------------------------
+
+
+                    </script>
+                </li>
+                <li style="margin-left:8px;"><a href="#foot">Liên hệ</a></li>
+                <li><a href="index.html?giohang"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a></li>
+                <li id="info" >
+                    <p style="height:40px;width:180px;float:left;margin-left:-20px;"><span id="type"></span><span id="useronline"></span></p>
+                    <a href="admin.html" id="edit" style="display: none;margin-top:40px;position:absolute;margin-left:120px;" class="fas fa-cog"></a>
+                    <a class="signout" id="signout()" onClick="signOut()" style="color:black;text-decoration:none;">Đăng xuất</a>
+
+
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div>
+        <img src="img/ppp2.jpg" style="margin-top:150px;" />
+
+    </div>
+    <div id="giaphat">
+        <div class="giaphat1">
+            <div class="giaphat2">
+                <h3><u>Dịch vụ chuyên nghiệp - Bảo mật thông tin cá nhân</u></h3>
+            </div>
+        </div>
+    </div>
+    <div id="giaphat3">
+        <div class="giaphat4">
+            <div id="giaphat5">
+
+            </div>
+        </div>
+    </div>
+    <div id="sotrang">
+        <!-- so trang -->
+    </div>
+
+    <div id="td">
+        <div id="signup" style="display: block; top: -90px;">
+            <form id="dangky" style="display: block;" onSubmit="return savedv()">
+                <span class="close" onclick="closetd()">+</span>
+                <br />
+                <h2>Đặt Dịch Vụ</h2>
+                <div class="signupinfo">
+                    <div class="col">
+                        <div id="error"></div>
+                        <label for="fullname">Họ và tên: </label>
+                        <input type="text" id="fullname" required=required />
+                        <label for="phone">Số điện thoại: </label>
+                        <input type="tel" id="phone" maxlength="11" required=required />
+                        <div id="phoneerror" style="float: left;display: none;"></div>
+                        <label for="fullname">Địa Chỉ: </label>
+                        <input type="text" id="fullname" required=required />
+                    </div>
+                </div>
+                <button type="submit" id="btnsignup" onClick="savedv()">Đặt Dịch Vụ</button>
+            </form>
+        </div>
+    </div>
+    <div id="foot">
+        <div class="container">
+            <div class="topfoot">
+                <div class="footmenu">
+                </div>
+                <div class="footmenu">
+                    <h4>Chăm sóc khách hàng</h4>
+
+                </div>
+                <div class="footmenu">
+                    <h4>Tin tức chung</h4>
+
+                </div>
+                <div class="footmenu">
+                    <h4>Thông tin liên hệ</h4>
+                    <p>Địa chỉ: 273 An Dương Vương, P3, Q5, TPHCM</p>
+                    <p><i class="fas fa-phone phone"></i> Hotline: 0785313029 </p>
+                </div>
+            </div>
+            <div class="botfoot">
+                <p>2020 © Copyright King Books. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function dichvu(masp, tensp, gia, hinh, matheloai, price) {
+            this.masp = masp;
+            this.tensp = tensp;
+            this.gia = gia;
+            this.hinh = hinh;
+            this.theloai = matheloai;
+            this.price = price;
+        }
+        var ms = new Array();
+        ms[0] = new dichvu("MS001", "TRÍ TUỆ CẢM XÚC", "2.200", "img/1.daoduc/dd1.jpg", "", 2200);
+        ms[1] = new dichvu("MS002", "ĐẮC NHÂN TÂM", " 5.000", "img/1.daoduc/dd4.png", "", 5000);
+        ms[2] = new dichvu("MS003", "CƠ THỂ 4 GIỜ", "3.000", "img/3.suckhoe/sk1.jpg", "", 3000);
+        ms[3] = new dichvu("MS004", "TÔI TỰ HỌC", "1.000", "img/1.daoduc/dd6.jpg", "", 1000);
+        ms[4] = new dichvu("MS005", "MUÔN KIẾP NHÂN SINH", "2.000", "img/2.khoahoc/kh7.jpg", "", 2000);
+        ms[5] = new dichvu("MS006", "TIẾN HÓA", "1.000", "img/2.khoahoc/kh10.jpg", "", 1000);
+
+        var t = "";
+        var dem = 0;
+        for (var i = 0; i < ms.length; i++) {
+            dem++;
+            t = t + '<div id="abcxyz"><img src = "' + ms[i].hinh + '" /><p>' + ms[i].tensp + '</p><br><p>' + ms[i].gia + '</p><button style="border-radius:20px;height:30px;"><a style="font-family:inherit;cursor: pointer;color: bloack;text-align: center;margin:20px; text-decoration: none;" onclick="opentd()">Đặt Dịch Vụ</a></button></div>';
+            if (dem == 6)
+                break;
+        }
+
+        document.getElementById("giaphat5").innerHTML = t;
+        sotrang = Math.ceil(vsg.length / 6);
+        function closetd() {
+            document.getElementById("td").style.display = "none";
+        }
+        function opentd() {
+            document.getElementById("td").style.display = "block";
+        }
+        // SO TRANG
+        var lienket = "";
+        for (var i = 1; i <= sotrang; i++) {
+            lienket = lienket + '<div class="ttyy" style="height:30px;width:30px;border:#cbcbcb solid 1px;border-radius:20px;background:#000044;"><li style="list-style:none;text-align:center;line-height:30px;"><a style="color:#f1e50b;text-decoration:none;" href="vsg.html?' + '&' + i + '" id="trang' + i + '">' + i + '</a></li></div>';
+        }
+        if (document.getElementById("noidung") != "") {
+            document.getElementById("sotrang").innerHTML = lienket;
+        }
+    </script>
+</body>
+</html>
